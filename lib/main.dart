@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news/ui/screens/home_screen.dart';
-
+import 'package:flutter_news/ui/screens/main_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: MainScreen(),
     );
   }
 }

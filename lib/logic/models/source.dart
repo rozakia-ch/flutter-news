@@ -1,4 +1,4 @@
-class Sources {
+class Source {
   String id;
   String name;
   String description;
@@ -7,10 +7,10 @@ class Sources {
   String language;
   String country;
 
-  Sources(
+  Source(
       {this.id, this.name, this.description, this.url, this.category, this.language, this.country});
 
-  Sources.fromJson(Map<String, dynamic> json) {
+  Source.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     description = json['description'];
