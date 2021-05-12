@@ -62,17 +62,25 @@ class _SearchScreenState extends State<SearchScreen> {
                         size: 16.0,
                       ),
                 enabledBorder: OutlineInputBorder(
-                    borderSide: new BorderSide(color: Colors.grey[100].withOpacity(0.3)),
-                    borderRadius: BorderRadius.circular(30.0)),
+                  borderSide: BorderSide(color: Colors.grey.withOpacity(0.3)),
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
                 focusedBorder: OutlineInputBorder(
-                    borderSide: new BorderSide(color: Colors.grey[100].withOpacity(0.3)),
-                    borderRadius: BorderRadius.circular(30.0)),
+                  borderSide: BorderSide(color: Colors.grey[400].withOpacity(0.3)),
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
                 contentPadding: EdgeInsets.only(left: 15.0, right: 10.0),
                 labelText: "Search...",
                 hintStyle: TextStyle(
-                    fontSize: 14.0, color: Style.Colors.grey, fontWeight: FontWeight.w500),
-                labelStyle:
-                    TextStyle(fontSize: 14.0, color: Colors.grey, fontWeight: FontWeight.w500),
+                  fontSize: 14.0,
+                  color: Style.Colors.grey,
+                  fontWeight: FontWeight.w500,
+                ),
+                labelStyle: TextStyle(
+                  fontSize: 14.0,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
               autocorrect: false,
               // autovalidateMode: AutovalidateMode.always,

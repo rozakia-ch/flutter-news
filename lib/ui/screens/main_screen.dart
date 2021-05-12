@@ -25,7 +25,7 @@ class _MainScreenState extends State<MainScreen> {
     SourcesScreen(),
     SearchScreen(),
   ];
-  static const List<String> _title = ["News App", "Sources", "Search"];
+  static const List<String> _title = ["News", "Sources", "Search"];
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -35,6 +35,8 @@ class _MainScreenState extends State<MainScreen> {
       child: Scaffold(
         // backgroundColor: Colors.white,
         appBar: AppBar(
+          brightness: Brightness.dark,
+          backgroundColor: Style.Colors.mainColor,
           title: Text(
             _title.elementAt(_selectedIndex),
             style: TextStyle(color: Colors.white),
@@ -59,7 +61,7 @@ class _MainScreenState extends State<MainScreen> {
             child: BottomNavigationBar(
               backgroundColor: Colors.white,
               iconSize: 20,
-              unselectedItemColor: Style.Colors.grey,
+              unselectedItemColor: Colors.black,
               unselectedFontSize: 9.5,
               selectedFontSize: 9.5,
               type: BottomNavigationBarType.fixed,
