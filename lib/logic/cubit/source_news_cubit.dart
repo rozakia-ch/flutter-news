@@ -9,6 +9,8 @@ class SourceNewsCubit extends Cubit<SourceNewsState> {
   SourceNewsCubit() : super(SourceNewsInitial());
   final EverythingRepository _repository = EverythingRepository();
   getSourceNews({String sourceId}) async {
+    emit(SourceNewsLoading());
     ArticleResponse _response = await _repository.getSourceNews(sourceId: sourceId);
+    emit(SourceNewsLoaded(articles: _response));
   }
 }

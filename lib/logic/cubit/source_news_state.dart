@@ -8,3 +8,15 @@ class SourceNewsInitial extends SourceNewsState {
   @override
   List<Object> get props => [];
 }
+
+class SourceNewsLoading extends SourceNewsState {
+  @override
+  List<Object> get props => [];
+}
+
+class SourceNewsLoaded extends SourceNewsState {
+  ArticleResponse articles;
+  SourceNewsLoaded({this.articles});
+  @override
+  List<Object> get props => [articles];
+}

@@ -50,7 +50,7 @@ class NewsDetail extends StatelessWidget {
                 alignment: Alignment.topCenter,
                 placeholder: 'images/placeholder.png',
                 image: article.urlToImage == null
-                    ? "http://to-let.com.bd/operator/images/noimage.png"
+                    ? "https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg"
                     : article.urlToImage,
                 fit: BoxFit.cover,
                 width: double.maxFinite,

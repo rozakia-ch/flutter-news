@@ -56,11 +56,13 @@ class Topchannels extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => SourceDetail(
-                              // source: sources[index],
-                              )));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SourceDetail(
+                        source: sources[index],
+                      ),
+                    ),
+                  );
                 },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
