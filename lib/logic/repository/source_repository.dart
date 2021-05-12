@@ -11,7 +11,7 @@ class SourceRepository {
       return SourceResponse.fromJson(response.data);
     } catch (error, stacktrace) {
       print("Exception occurred: $error stackTrace: $stacktrace");
-      return error;
+      return SourceResponse.withError("$error");
     }
   }
 }

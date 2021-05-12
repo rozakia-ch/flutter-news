@@ -6,7 +6,7 @@ import 'package:flutter_news/ui/screens/navbar_screens/sources_screen.dart';
 import 'package:flutter_news/ui/styles/style.dart' as Style;
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key key}) : super(key: key);
+  const MainScreen({Key? key}) : super(key: key);
 
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -50,7 +50,7 @@ class _MainScreenState extends State<MainScreen> {
               topLeft: Radius.circular(30),
             ),
             boxShadow: [
-              BoxShadow(color: Colors.grey[100], spreadRadius: 0, blurRadius: 10),
+              BoxShadow(color: Colors.grey[100]!, spreadRadius: 0, blurRadius: 10),
             ],
           ),
           child: ClipRRect(

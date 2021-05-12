@@ -14,9 +14,10 @@ class SourceNewsLoading extends SourceNewsState {
   List<Object> get props => [];
 }
 
+// ignore: must_be_immutable
 class SourceNewsLoaded extends SourceNewsState {
-  ArticleResponse articles;
+  ArticleResponse? articles;
   SourceNewsLoaded({this.articles});
   @override
-  List<Object> get props => [articles];
+  List<Object?> get props => [articles];
 }

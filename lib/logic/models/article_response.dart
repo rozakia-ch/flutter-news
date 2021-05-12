@@ -1,9 +1,10 @@
 import 'package:flutter_news/logic/models/article.dart';
 
 class ArticleResponse {
-  String status;
-  int totalResults;
-  List<Articles> articles;
+  String? status;
+  int? totalResults;
+  List<Article>? articles;
+  String? error;
 
   ArticleResponse({this.status, this.totalResults, this.articles});
 
@@ -11,10 +12,14 @@ class ArticleResponse {
     status = json['status'];
     totalResults = json['totalResults'];
     if (json['articles'] != null) {
-      articles = <Articles>[];
+      articles = <Article>[];
       json['articles'].forEach((v) {
-        articles.add(new Articles.fromJson(v));
+        articles!.add(new Article.fromJson(v));
       });
     }
+    error = "";
   }
+  ArticleResponse.withError(String errorValue)
+      : articles = [],
+        error = errorValue;
 }

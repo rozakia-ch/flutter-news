@@ -6,7 +6,7 @@ import 'package:flutter_news/logic/models/source_response.dart';
 import 'package:flutter_news/ui/screens/source_detail.dart';
 
 class SourcesScreen extends StatelessWidget {
-  const SourcesScreen({Key key}) : super(key: key);
+  const SourcesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class SourcesScreen extends StatelessWidget {
           if (state is SourcesLoading) {
             return Container();
           } else if (state is SourcesLoaded) {
-            return _buildSourcesWidget(context, state.sources);
+            return _buildSourcesWidget(context, state.sources!);
           }
           return Container();
         },
@@ -26,7 +26,7 @@ class SourcesScreen extends StatelessWidget {
   }
 
   Widget _buildSourcesWidget(BuildContext context, SourceResponse data) {
-    List<Source> sources = data.sources;
+    List<Source> sources = data.sources!;
     if (sources.length == 0) {
       return Container(
         width: MediaQuery.of(context).size.width,
@@ -71,7 +71,7 @@ class SourcesScreen extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(5.0)),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey[100],
+                      color: Colors.grey[100]!,
                       blurRadius: 5.0,
                       spreadRadius: 1.0,
                       offset: Offset(
@@ -85,7 +85,7 @@ class SourcesScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Hero(
-                      tag: sources[index].id,
+                      tag: sources[index].id!,
                       child: Container(
                         height: 60.0,
                         width: 60.0,
@@ -98,7 +98,7 @@ class SourcesScreen extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
                       child: Text(
-                        sources[index].name,
+                        sources[index].name!,
                         textAlign: TextAlign.center,
                         maxLines: 2,
                         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.0),

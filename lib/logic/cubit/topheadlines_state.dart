@@ -14,8 +14,9 @@ class TopheadlinesLoading extends TopheadlinesState {
   List<Object> get props => [];
 }
 
+// ignore: must_be_immutable
 class TopheadlinesLoaded extends TopheadlinesState {
-  ArticleResponse articles;
+  ArticleResponse? articles;
   TopheadlinesLoaded({this.articles});
   @override
   List<Object> get props => [];

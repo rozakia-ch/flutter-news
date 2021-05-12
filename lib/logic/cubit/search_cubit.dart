@@ -8,7 +8,7 @@ part 'search_state.dart';
 class SearchCubit extends Cubit<SearchState> {
   SearchCubit() : super(SearchInitial());
   final EverythingRepository _repository = EverythingRepository();
-  search({String value}) async {
+  search({String? value}) async {
     emit(SearchLoading());
     ArticleResponse _response = await _repository.search(value: value);
     emit(SearchLoaded(articles: _response));

@@ -12,7 +12,7 @@ class TopheadlinesRepository {
       return ArticleResponse.fromJson(response.data);
     } catch (error, stacktrace) {
       print("Exception occurred: $error stackTrace: $stacktrace");
-      return error;
+      return ArticleResponse.withError("$error");
     }
   }
 }

@@ -1,16 +1,16 @@
 import 'package:flutter_news/logic/models/source.dart';
 
-class Articles {
-  Source source;
-  String author;
-  String title;
-  String description;
-  String url;
-  String urlToImage;
-  String publishedAt;
-  String content;
+class Article {
+  Source? source;
+  String? author;
+  String? title;
+  String? description;
+  String? url;
+  String? urlToImage;
+  String? publishedAt;
+  String? content;
 
-  Articles(
+  Article(
       {this.source,
       this.author,
       this.title,
@@ -20,7 +20,7 @@ class Articles {
       this.publishedAt,
       this.content});
 
-  Articles.fromJson(Map<String, dynamic> json) {
+  Article.fromJson(Map<String, dynamic> json) {
     source = json['source'] != null ? new Source.fromJson(json['source']) : null;
     author = json['author'];
     title = json['title'];

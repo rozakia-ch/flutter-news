@@ -9,8 +9,8 @@ import 'package:flutter_news/ui/styles/style.dart' as Style;
 import 'package:timeago/timeago.dart' as timeago;
 
 class SourceDetail extends StatelessWidget {
-  const SourceDetail({Key key, this.source}) : super(key: key);
-  final Source source;
+  const SourceDetail({Key? key, this.source}) : super(key: key);
+  final Source? source;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +32,7 @@ class SourceDetail extends StatelessWidget {
             child: Column(
               children: [
                 Hero(
-                  tag: source.id,
+                  tag: source!.id!,
                   child: SizedBox(
                     height: 80.0,
                     width: 80.0,
@@ -41,7 +41,7 @@ class SourceDetail extends StatelessWidget {
                         border: Border.all(width: 2.0, color: Colors.white),
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                          image: AssetImage("assets/logos/${source.id}.png"),
+                          image: AssetImage("assets/logos/${source!.id}.png"),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -50,7 +50,7 @@ class SourceDetail extends StatelessWidget {
                 ),
                 SizedBox(height: 5.0),
                 Text(
-                  source.name,
+                  source!.name!,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,
@@ -59,7 +59,7 @@ class SourceDetail extends StatelessWidget {
                 ),
                 SizedBox(height: 5.0),
                 Text(
-                  source.description,
+                  source!.description!,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 12.0,
@@ -70,13 +70,13 @@ class SourceDetail extends StatelessWidget {
           ),
           Expanded(
             child: BlocProvider(
-              create: (context) => SourceNewsCubit()..getSourceNews(sourceId: source.id),
+              create: (context) => SourceNewsCubit()..getSourceNews(sourceId: source!.id),
               child: BlocBuilder<SourceNewsCubit, SourceNewsState>(
                 builder: (context, state) {
                   if (state is SourceNewsLoading) {
                     return Container();
                   } else if (state is SourceNewsLoaded) {
-                    return _buildSourceNewsWidget(context, state.articles);
+                    return _buildSourceNewsWidget(context, state.articles!);
                   }
                   return Container();
                 },
@@ -89,7 +89,7 @@ class SourceDetail extends StatelessWidget {
   }
 
   Widget _buildSourceNewsWidget(BuildContext context, ArticleResponse data) {
-    List<Articles> articles = data.articles;
+    List<Article> articles = data.articles!;
 
     if (articles.length == 0) {
       return Container(
@@ -123,7 +123,7 @@ class SourceDetail extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 border: Border(
-                  top: BorderSide(color: Colors.grey[200], width: 1.0),
+                  top: BorderSide(color: Colors.grey[200]!, width: 1.0),
                 ),
                 color: Colors.white,
               ),
@@ -138,7 +138,7 @@ class SourceDetail extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          articles[index].title,
+                          articles[index].title!,
                           maxLines: 3,
                           style: TextStyle(
                               fontWeight: FontWeight.bold, color: Colors.black, fontSize: 14.0),
@@ -152,7 +152,7 @@ class SourceDetail extends StatelessWidget {
                               Row(
                                 children: <Widget>[
                                   Text(
-                                    timeUntil(DateTime.parse(articles[index].publishedAt)),
+                                    timeUntil(DateTime.parse(articles[index].publishedAt!)),
                                     style: TextStyle(
                                       color: Colors.black26,
                                       fontWeight: FontWeight.bold,
@@ -176,7 +176,7 @@ class SourceDetail extends StatelessWidget {
                       placeholder: 'assets/images/placeholder.jpg',
                       image: articles[index].urlToImage == null
                           ? "https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg"
-                          : articles[index].urlToImage,
+                          : articles[index].urlToImage!,
                       fit: BoxFit.fitHeight,
                       width: double.maxFinite,
                       height: MediaQuery.of(context).size.height * 1 / 3,

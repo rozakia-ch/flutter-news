@@ -14,9 +14,10 @@ class SearchLoading extends SearchState {
   List<Object> get props => [];
 }
 
+// ignore: must_be_immutable
 class SearchLoaded extends SearchState {
-  ArticleResponse articles;
+  ArticleResponse? articles;
   SearchLoaded({this.articles});
   @override
-  List<Object> get props => [articles];
+  List<Object?> get props => [articles];
 }

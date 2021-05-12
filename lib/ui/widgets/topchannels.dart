@@ -7,7 +7,7 @@ import 'package:flutter_news/ui/screens/source_detail.dart';
 import 'package:flutter_news/ui/styles/style.dart' as Style;
 
 class Topchannels extends StatelessWidget {
-  const Topchannels({Key key}) : super(key: key);
+  const Topchannels({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class Topchannels extends StatelessWidget {
         if (state is SourcesLoading) {
           return Container();
         } else if (state is SourcesLoaded) {
-          return _buildSourcesWidget(context, state.sources);
+          return _buildSourcesWidget(context, state.sources!);
         }
         return Container();
       },
@@ -24,7 +24,7 @@ class Topchannels extends StatelessWidget {
   }
 
   Widget _buildSourcesWidget(BuildContext context, SourceResponse data) {
-    List<Source> sources = data.sources;
+    List<Source> sources = data.sources!;
     if (sources.length == 0) {
       return Container(
         width: MediaQuery.of(context).size.width,
@@ -68,7 +68,7 @@ class Topchannels extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Hero(
-                      tag: sources[index].id,
+                      tag: sources[index].id!,
                       child: Container(
                           width: 50.0,
                           height: 50.0,
@@ -94,7 +94,7 @@ class Topchannels extends StatelessWidget {
                       height: 10.0,
                     ),
                     Text(
-                      sources[index].name,
+                      sources[index].name!,
                       maxLines: 2,
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -107,7 +107,7 @@ class Topchannels extends StatelessWidget {
                       height: 3.0,
                     ),
                     Text(
-                      sources[index].category,
+                      sources[index].category!,
                       maxLines: 2,
                       textAlign: TextAlign.center,
                       style: TextStyle(

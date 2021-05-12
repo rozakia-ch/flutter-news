@@ -9,7 +9,7 @@ import 'package:flutter_news/ui/styles/style.dart' as Style;
 import 'package:timeago/timeago.dart' as timeago;
 
 class Hotnews extends StatelessWidget {
-  const Hotnews({Key key}) : super(key: key);
+  const Hotnews({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class Hotnews extends StatelessWidget {
         if (state is HotNewsLoading) {
           return Container();
         } else if (state is HotNewsLoaded) {
-          return _buildHotNewsWidget(context, state.articles);
+          return _buildHotNewsWidget(context, state.articles!);
         }
         return Container();
       },
@@ -26,7 +26,7 @@ class Hotnews extends StatelessWidget {
   }
 
   Widget _buildHotNewsWidget(BuildContext context, ArticleResponse data) {
-    List<Articles> articles = data.articles;
+    List<Article> articles = data.articles!;
 
     if (articles.length == 0) {
       return Container(
@@ -74,7 +74,7 @@ class Hotnews extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(5.0)),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey[100],
+                        color: Colors.grey[100]!,
                         blurRadius: 5.0,
                         spreadRadius: 1.0,
                         offset: Offset(1.0, 1.0),
@@ -90,9 +90,10 @@ class Hotnews extends StatelessWidget {
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(5.0), topRight: Radius.circular(5.0)),
                             image: DecorationImage(
-                              image: articles[index].urlToImage == null
-                                  ? AssetImage("aseets/images/placeholder.jpg")
-                                  : NetworkImage(articles[index].urlToImage),
+                              image: (articles[index].urlToImage == null
+                                      ? AssetImage("aseets/images/placeholder.jpg")
+                                      : NetworkImage(articles[index].urlToImage!))
+                                  as ImageProvider<Object>,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -101,7 +102,7 @@ class Hotnews extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
                         child: Text(
-                          articles[index].title,
+                          articles[index].title!,
                           textAlign: TextAlign.center,
                           maxLines: 2,
                           style: TextStyle(height: 1.3, fontSize: 14.0),
@@ -130,11 +131,11 @@ class Hotnews extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              articles[index].source.name,
+                              articles[index].source!.name!,
                               style: TextStyle(color: Style.Colors.mainColor, fontSize: 9.0),
                             ),
                             Text(
-                              timeUntil(DateTime.parse(articles[index].publishedAt)),
+                              timeUntil(DateTime.parse(articles[index].publishedAt!)),
                               style: TextStyle(color: Colors.black54, fontSize: 9.0),
                             )
                           ],

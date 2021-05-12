@@ -8,7 +8,7 @@ import 'package:flutter_news/ui/widgets/topchannels.dart';
 import 'package:flutter_news/ui/widgets/topheadlines.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

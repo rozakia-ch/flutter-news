@@ -9,7 +9,7 @@ import 'package:flutter_news/ui/styles/style.dart' as Style;
 import 'package:timeago/timeago.dart' as timeago;
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen({Key key}) : super(key: key);
+  const SearchScreen({Key? key}) : super(key: key);
 
   @override
   _SearchScreenState createState() => _SearchScreenState();
@@ -66,7 +66,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   borderRadius: BorderRadius.circular(30.0),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey[400].withOpacity(0.3)),
+                  borderSide: BorderSide(color: Colors.grey[400]!.withOpacity(0.3)),
                   borderRadius: BorderRadius.circular(30.0),
                 ),
                 contentPadding: EdgeInsets.only(left: 15.0, right: 10.0),
@@ -92,7 +92,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 if (state is SearchLoading) {
                   return Container();
                 } else if (state is SearchLoaded) {
-                  return _buildSourceNewsWidget(state.articles);
+                  return _buildSourceNewsWidget(state.articles!);
                 }
                 return Container();
               },
@@ -104,7 +104,7 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Widget _buildSourceNewsWidget(ArticleResponse data) {
-    List<Articles> articles = data.articles;
+    List<Article> articles = data.articles!;
 
     if (articles.length == 0) {
       return Container(
@@ -138,7 +138,7 @@ class _SearchScreenState extends State<SearchScreen> {
             child: Container(
               decoration: BoxDecoration(
                 border: Border(
-                  top: BorderSide(color: Colors.grey[200], width: 1.0),
+                  top: BorderSide(color: Colors.grey[200]!, width: 1.0),
                 ),
                 color: Colors.white,
               ),
@@ -153,7 +153,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          articles[index].title,
+                          articles[index].title!,
                           maxLines: 3,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -170,7 +170,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               Row(
                                 children: [
                                   Text(
-                                    timeUntil(DateTime.parse(articles[index].publishedAt)),
+                                    timeUntil(DateTime.parse(articles[index].publishedAt!)),
                                     style: TextStyle(
                                       color: Colors.black26,
                                       fontWeight: FontWeight.bold,
@@ -194,7 +194,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       placeholder: 'assets/images/placeholder.jpg',
                       image: articles[index].urlToImage == null
                           ? "https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg"
-                          : articles[index].urlToImage,
+                          : articles[index].urlToImage!,
                       fit: BoxFit.fitHeight,
                       width: double.maxFinite,
                       height: MediaQuery.of(context).size.height * 1 / 3,

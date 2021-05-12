@@ -8,7 +8,7 @@ import 'package:flutter_news/ui/screens/news_detail.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class Topheadlines extends StatelessWidget {
-  const Topheadlines({Key key}) : super(key: key);
+  const Topheadlines({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class Topheadlines extends StatelessWidget {
         if (state is TopheadlinesLoading) {
           return Container();
         } else if (state is TopheadlinesLoaded) {
-          return _buildHeadline(context, state.articles);
+          return _buildHeadline(context, state.articles!);
         }
         return Container();
       },
@@ -25,7 +25,7 @@ class Topheadlines extends StatelessWidget {
   }
 
   Widget _buildHeadline(BuildContext context, ArticleResponse data) {
-    List<Articles> articles = data.articles;
+    List<Article> articles = data.articles!;
     return Container(
       child: CarouselSlider(
         options: CarouselOptions(
@@ -38,7 +38,7 @@ class Topheadlines extends StatelessWidget {
     );
   }
 
-  getExpenseSliders(BuildContext context, List<Articles> articles) {
+  getExpenseSliders(BuildContext context, List<Article> articles) {
     return articles
         .map(
           (article) => GestureDetector(
@@ -62,9 +62,9 @@ class Topheadlines extends StatelessWidget {
                       shape: BoxShape.rectangle,
                       image: new DecorationImage(
                         fit: BoxFit.cover,
-                        image: article.urlToImage == null
+                        image: (article.urlToImage == null
                             ? AssetImage("assets/images/placeholder.jpg")
-                            : NetworkImage(article.urlToImage),
+                            : NetworkImage(article.urlToImage!)) as ImageProvider<Object>,
                       ),
                     ),
                   ),
@@ -87,7 +87,7 @@ class Topheadlines extends StatelessWidget {
                       child: Column(
                         children: <Widget>[
                           Text(
-                            article.title,
+                            article.title!,
                             style: TextStyle(
                                 height: 1.5,
                                 color: Colors.white,
@@ -102,7 +102,7 @@ class Topheadlines extends StatelessWidget {
                     bottom: 10.0,
                     left: 10.0,
                     child: Text(
-                      article.source.name,
+                      article.source!.name!,
                       style: TextStyle(color: Colors.white54, fontSize: 9.0),
                     ),
                   ),
@@ -111,7 +111,7 @@ class Topheadlines extends StatelessWidget {
                     right: 10.0,
                     child: Text(
                       timeUntil(
-                        DateTime.parse(article.publishedAt),
+                        DateTime.parse(article.publishedAt!),
                       ),
                       style: TextStyle(color: Colors.white54, fontSize: 9.0),
                     ),

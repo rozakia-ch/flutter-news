@@ -14,9 +14,10 @@ class SourcesLoading extends SourcesState {
   List<Object> get props => [];
 }
 
+// ignore: must_be_immutable
 class SourcesLoaded extends SourcesState {
-  SourceResponse sources;
+  SourceResponse? sources;
   SourcesLoaded({this.sources});
   @override
-  List<Object> get props => [sources];
+  List<Object?> get props => [sources];
 }

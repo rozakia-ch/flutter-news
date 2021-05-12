@@ -6,14 +6,14 @@ import 'package:timeago/timeago.dart' as timeago;
 import 'package:flutter_news/ui/styles/style.dart' as Style;
 
 class NewsDetail extends StatelessWidget {
-  const NewsDetail({Key key, this.article}) : super(key: key);
-  final Articles article;
+  const NewsDetail({Key? key, this.article}) : super(key: key);
+  final Article? article;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: GestureDetector(
         onTap: () {
-          launch(article.url);
+          launch(article!.url!);
         },
         child: Container(
           height: 48.0,
@@ -35,7 +35,7 @@ class NewsDetail extends StatelessWidget {
         elevation: 0.0,
         backgroundColor: Style.Colors.mainColor,
         title: new Text(
-          article.title,
+          article!.title!,
           style: TextStyle(
               fontSize: Theme.of(context).platform == TargetPlatform.iOS ? 17.0 : 17.0,
               color: Colors.white,
@@ -49,9 +49,9 @@ class NewsDetail extends StatelessWidget {
             child: FadeInImage.assetNetwork(
                 alignment: Alignment.topCenter,
                 placeholder: 'images/placeholder.png',
-                image: article.urlToImage == null
+                image: article!.urlToImage == null
                     ? "https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg"
-                    : article.urlToImage,
+                    : article!.urlToImage!,
                 fit: BoxFit.cover,
                 width: double.maxFinite,
                 height: MediaQuery.of(context).size.height * 1 / 3),
@@ -67,7 +67,7 @@ class NewsDetail extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(article.publishedAt.substring(0, 10),
+                    Text(article!.publishedAt!.substring(0, 10),
                         style:
                             TextStyle(color: Style.Colors.mainColor, fontWeight: FontWeight.bold)),
                   ],
@@ -77,7 +77,7 @@ class NewsDetail extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {},
-                  child: Text(article.title,
+                  child: Text(article!.title!,
                       style: TextStyle(
                           fontWeight: FontWeight.bold, color: Colors.black, fontSize: 20.0)),
                 ),
@@ -85,15 +85,15 @@ class NewsDetail extends StatelessWidget {
                   height: 10.0,
                 ),
                 Text(
-                  timeUntil(DateTime.parse(article.publishedAt)),
+                  timeUntil(DateTime.parse(article!.publishedAt!)),
                   style: TextStyle(color: Colors.grey, fontSize: 12.0),
                 ),
                 SizedBox(
                   height: 5.0,
                 ),
-                if (article.content != null)
+                if (article!.content != null)
                   Html(
-                    data: article.content,
+                    data: article!.content,
 
                     // renderNewlines: true,
                     // defaultTextStyle: TextStyle(fontSize: 14.0, color: Colors.black87),
