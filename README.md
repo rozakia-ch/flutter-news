@@ -20,8 +20,8 @@ samples, guidance on mobile development, and a full API reference.
 
 <table>
    <tr>
-       <td><img src="apk/Screenshot_1.jpeg" width=270 height=480></td>
-       <td><img src="apk/Screenshot_2.jpeg" width=270 height=480></td>
-       <td><img src="apk/Screenshot_3.jpeg" width=270 height=480></td>
+       <td><img src="apk/Screenshot_1.jpg" width=270 height=480></td>
+       <td><img src="apk/Screenshot_2.jpg" width=270 height=480></td>
+       <td><img src="apk/Screenshot_3.jpg" width=270 height=480></td>
      </tr>
  </table>
