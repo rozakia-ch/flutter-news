@@ -16,7 +16,6 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 # flutter_news
 ## API: [News API](https://newsapi.org/)
-[Download APK](https://github.com/rozakia-ch/flutter-movie/raw/main/apk/app-release.apk)
 
 Used Package:
 - dio: ^4.0.0
@@ -28,6 +27,8 @@ Used Package:
 - flutter_html: ^2.0.0
 - carousel_slider: ^3.0.0
 - equatable: ^2.0.0
+
+[Download APK](https://github.com/rozakia-ch/flutter-movie/raw/main/apk/app-release.apk)
 
 <table>
    <tr>
