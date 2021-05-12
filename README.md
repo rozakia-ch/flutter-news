@@ -28,7 +28,7 @@ Used Package:
 - carousel_slider: ^3.0.0
 - equatable: ^2.0.0
 
-[Download APK](https://github.com/rozakia-ch/flutter-movie/raw/main/apk/app-release.apk)
+[Download APK](https://github.com/rozakia-ch/flutter-news/raw/main/apk/app-release.apk)
 
 <table>
    <tr>
