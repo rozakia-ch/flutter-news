@@ -17,6 +17,16 @@ samples, guidance on mobile development, and a full API reference.
 # flutter_news
 ## API: [News API](https://newsapi.org/)
 [Download APK](https://github.com/rozakia-ch/flutter-movie/raw/main/apk/app-release.apk)
+Used Package:
+- dio: ^4.0.0
+- bloc: ^7.0.0
+- flutter_bloc: ^7.0.0
+- eva_icons_flutter: ^3.0.0
+- url_launcher: ^6.0.3
+- timeago: ^3.0.2
+- flutter_html: ^2.0.0
+- carousel_slider: ^3.0.0
+- equatable: ^2.0.0
 
 <table>
    <tr>
