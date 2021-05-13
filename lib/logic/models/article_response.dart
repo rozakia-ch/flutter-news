@@ -14,7 +14,7 @@ class ArticleResponse {
     if (json['articles'] != null) {
       articles = <Article>[];
       json['articles'].forEach((v) {
-        articles!.add(new Article.fromJson(v));
+        articles!.add(Article.fromJson(v));
       });
     }
     error = "";

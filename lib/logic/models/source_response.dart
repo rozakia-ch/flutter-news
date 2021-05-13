@@ -12,7 +12,7 @@ class SourceResponse {
     if (json['sources'] != null) {
       sources = <Source>[];
       json['sources'].forEach((v) {
-        sources!.add(new Source.fromJson(v));
+        sources!.add(Source.fromJson(v));
       });
     }
     error = "";

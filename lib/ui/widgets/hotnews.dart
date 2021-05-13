@@ -46,7 +46,7 @@ class Hotnews extends StatelessWidget {
       return Container(
         height: articles.length / 2 * 210.0,
         padding: EdgeInsets.all(5.0),
-        child: new GridView.builder(
+        child: GridView.builder(
           physics: NeverScrollableScrollPhysics(),
           itemCount: articles.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -88,19 +88,21 @@ class Hotnews extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(5.0), topRight: Radius.circular(5.0)),
+                                topLeft: Radius.circular(5.0),
+                                topRight: Radius.circular(5.0)),
                             image: DecorationImage(
                               image: (articles[index].urlToImage == null
-                                      ? AssetImage("aseets/images/placeholder.jpg")
-                                      : NetworkImage(articles[index].urlToImage!))
-                                  as ImageProvider<Object>,
+                                  ? AssetImage("aseets/images/placeholder.jpg")
+                                  : NetworkImage(articles[index]
+                                      .urlToImage!)) as ImageProvider<Object>,
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
+                        padding: EdgeInsets.only(
+                            left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
                         child: Text(
                           articles[index].title!,
                           textAlign: TextAlign.center,
@@ -132,11 +134,14 @@ class Hotnews extends StatelessWidget {
                           children: [
                             Text(
                               articles[index].source!.name!,
-                              style: TextStyle(color: Style.Colors.mainColor, fontSize: 9.0),
+                              style: TextStyle(
+                                  color: Style.Colors.mainColor, fontSize: 9.0),
                             ),
                             Text(
-                              timeUntil(DateTime.parse(articles[index].publishedAt!)),
-                              style: TextStyle(color: Colors.black54, fontSize: 9.0),
+                              timeUntil(
+                                  DateTime.parse(articles[index].publishedAt!)),
+                              style: TextStyle(
+                                  color: Colors.black54, fontSize: 9.0),
                             )
                           ],
                         ),

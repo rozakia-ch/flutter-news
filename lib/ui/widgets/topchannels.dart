@@ -72,7 +72,7 @@ class Topchannels extends StatelessWidget {
                       child: Container(
                           width: 50.0,
                           height: 50.0,
-                          decoration: new BoxDecoration(
+                          decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
@@ -85,9 +85,10 @@ class Topchannels extends StatelessWidget {
                                 ),
                               )
                             ],
-                            image: new DecorationImage(
+                            image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage("assets/logos/${sources[index].id}.png")),
+                                image: AssetImage(
+                                    "assets/logos/${sources[index].id}.png")),
                           )),
                     ),
                     SizedBox(

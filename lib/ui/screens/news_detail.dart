@@ -18,14 +18,18 @@ class NewsDetail extends StatelessWidget {
         child: Container(
           height: 48.0,
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(color: Colors.white, gradient: Style.Colors.primaryGradient),
+          decoration: BoxDecoration(
+              color: Colors.white, gradient: Style.Colors.primaryGradient),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
                 "Read More",
-                style: TextStyle(color: Colors.white, fontFamily: "SFPro-Bold", fontSize: 15.0),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "SFPro-Bold",
+                    fontSize: 15.0),
               ),
             ],
           ),
@@ -34,10 +38,12 @@ class NewsDetail extends StatelessWidget {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Style.Colors.mainColor,
-        title: new Text(
+        title: Text(
           article!.title!,
           style: TextStyle(
-              fontSize: Theme.of(context).platform == TargetPlatform.iOS ? 17.0 : 17.0,
+              fontSize: Theme.of(context).platform == TargetPlatform.iOS
+                  ? 17.0
+                  : 17.0,
               color: Colors.white,
               fontWeight: FontWeight.bold),
         ),
@@ -68,8 +74,9 @@ class NewsDetail extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(article!.publishedAt!.substring(0, 10),
-                        style:
-                            TextStyle(color: Style.Colors.mainColor, fontWeight: FontWeight.bold)),
+                        style: TextStyle(
+                            color: Style.Colors.mainColor,
+                            fontWeight: FontWeight.bold)),
                   ],
                 ),
                 SizedBox(
@@ -79,7 +86,9 @@ class NewsDetail extends StatelessWidget {
                   onTap: () {},
                   child: Text(article!.title!,
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.black, fontSize: 20.0)),
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 20.0)),
                 ),
                 SizedBox(
                   height: 10.0,

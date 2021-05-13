@@ -53,18 +53,20 @@ class Topheadlines extends StatelessWidget {
               );
             },
             child: Container(
-              padding: const EdgeInsets.only(left: 5.0, right: 5.0, top: 10.0, bottom: 10.0),
+              padding: const EdgeInsets.only(
+                  left: 5.0, right: 5.0, top: 10.0, bottom: 10.0),
               child: Stack(
                 children: [
                   Container(
-                    decoration: new BoxDecoration(
+                    decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(8.0)),
                       shape: BoxShape.rectangle,
-                      image: new DecorationImage(
+                      image: DecorationImage(
                         fit: BoxFit.cover,
                         image: (article.urlToImage == null
-                            ? AssetImage("assets/images/placeholder.jpg")
-                            : NetworkImage(article.urlToImage!)) as ImageProvider<Object>,
+                                ? AssetImage("assets/images/placeholder.jpg")
+                                : NetworkImage(article.urlToImage!))
+                            as ImageProvider<Object>,
                       ),
                     ),
                   ),
@@ -75,7 +77,10 @@ class Topheadlines extends StatelessWidget {
                         begin: Alignment.bottomCenter,
                         end: Alignment.topCenter,
                         stops: [0.1, 0.9],
-                        colors: [Colors.black.withOpacity(0.9), Colors.white.withOpacity(0.0)],
+                        colors: [
+                          Colors.black.withOpacity(0.9),
+                          Colors.white.withOpacity(0.0)
+                        ],
                       ),
                     ),
                   ),
